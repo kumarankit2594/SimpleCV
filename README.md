@@ -1,0 +1,2 @@
+# SimpleCV
+SimpleCV is an open source framework — meaning that it is a collection of libraries and software that you can use to develop vision applications. It lets you work with the images or video streams that come from webcams, Kinects, FireWire and IP cameras, or mobile phones. It’s helps you build software to make your various technologies not only see the world, but understand it too. SimpleCV is free to use, and because it’s open source, you can also modify the code if you choose to. It’s written in Python, and runs on Mac, Windows, and Ubuntu Linux. 
