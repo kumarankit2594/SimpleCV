@@ -1,0 +1,6 @@
+from SimpleCV import *
+img = Image("lenna")
+logo = Image("simplecv")
+img.dl().blit(logo)
+while True:
+    img.show()
