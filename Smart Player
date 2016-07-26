@@ -18,7 +18,7 @@ for i in pbar(range(100)):
  time.sleep(0.04)
  
 from pykeyboard import PyKeyboard    # import PyKeyboard() function from pykeyboard module
-k = PyKeyboard()
+k = PyKeyboard()                     # keyboard variable
 import time
 from SimpleCV import *
 cam = Camera(0,{"width":320,"height":240})   # here we reduce window size for faster computation
