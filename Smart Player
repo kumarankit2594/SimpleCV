@@ -3,7 +3,7 @@
 import time 
 from progressbar import *
 import sys
-#wid = widgets[Bar(marker='#', left='|',right='|',fill_left=True)]
+
 pbar = ProgressBar()
 for i in pbar(range(100)): 
  time.sleep(0.04)
