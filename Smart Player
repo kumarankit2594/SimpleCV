@@ -1,38 +1,43 @@
+"""
+- In this code we make sure that the image is not being displayed, this cause the image display window to be
+  the active window.
+- First we will run a VLC player with the code running in the background.
+- Then we run the code
+- We use a variable pause to hold the states of the of the video.
+- Note video has to be playing first because the initial state of “pause” is “False”
+- The function tap_key(key) is used to simulate key presses
 
+"""
 	  
-import time 
-from progressbar import *
+import time                  # import time module
+from progressbar import *    # import every(*) function from progressbar module
 import sys
 
 pbar = ProgressBar()
 for i in pbar(range(100)): 
  time.sleep(0.04)
  
-from pykeyboard import PyKeyboard
+from pykeyboard import PyKeyboard    # import PyKeyboard() function from pykeyboard module
 k = PyKeyboard()
 import time
 from SimpleCV import *
-cam = Camera(0,{"width":320,"height":240})
-paused = False
+cam = Camera(0,{"width":320,"height":240})   # here we reduce window size for faster computation
+paused = False                               # initial state of video
 while True:
- img = cam.getImage().flipHorizontal()
- face_segment = HaarCascade("face.xml")
- gray = img.grayscale() 
- autoface = gray.findHaarFeatures(face_segment)
+ img = cam.getImage().flipHorizontal()       # get image from webcam and flip it horizontally
+ face_segment = HaarCascade("face.xml")      # it is used to load the XML feature file present in SimpleCV,already included in the package
+ gray = img.grayscale()                      #Converts the image to grayscale before extraction , this is done so that the task of extracting features becomes less processor heavy and can be achieved faster 
+ autoface = gray.findHaarFeatures(face_segment)  #find all face like features present in the image
  if(autoface is not None):
   if paused:
    k.tap_key(k.space_key)
    paused = False
-   #paused = False
+   
    print "continuing"
    
  else:
   if not paused:
-    k.tap_key(k.space_key)
-	#Create an Alt+Tab combo
-    #k.press_key(k.alt_key)
-    #k.tap_key(k.functio)
-    #k.release_key(k.alt_key)
+    k.tap_key(k.space_key)                    #simulate spacebar key
 
     paused = True
     print "paused"	
